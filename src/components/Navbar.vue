@@ -4,14 +4,14 @@
             <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
             <v-toolbar-title>Cursos AlfaWeb</v-toolbar-title>
             <v-spacer></v-spacer>
-            <div v-if="$store.state.access.currentUser">
+            <div v-if="$store.state.access.currentUser !== null">
                 <span>{{ $store.state.access.currentUser.email }}</span>
                 <v-btn icon @click="logout">
                     <v-icon>mdi-logout</v-icon>
                 </v-btn>
             </div>
             <div v-else>
-                <v-btn icon>
+                <v-btn icon router to="/login">
                     <v-icon>mdi-login</v-icon>
                 </v-btn>
             </div>
@@ -66,8 +66,8 @@ export default {
             Firebase.auth()
             .signOut()
             .then(() => {
+                this.$store.dispatch("access/logoutUser");
                 this.$router.push("/login");
-                this.$store.dispatch('clearData', {})
             });
         }
     }

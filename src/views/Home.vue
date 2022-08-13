@@ -60,6 +60,7 @@
 <script>
 import Store from "../store";
 export default {
+    name: "Home",
     data: () => ({
     }),
      beforeRouteEnter(to, from, next) {

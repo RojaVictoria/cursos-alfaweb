@@ -12,8 +12,9 @@ import Navbar from "./components/Navbar.vue"
 export default {
   components: { Navbar },
   name: "App",
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
+   mounted() {
+    this.$store.dispatch("access/subscribeToAuthStateChange");
+  },
 };
 </script>

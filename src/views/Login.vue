@@ -66,6 +66,7 @@
 import Firebase from 'firebase';
 import Swal from 'sweetalert2';
 export default {
+    name: "Login",
     data: () => ({
       form: {
         email: "",
